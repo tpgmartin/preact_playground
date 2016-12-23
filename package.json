@@ -1,0 +1,21 @@
+{
+  "name": "preact_playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive --compilers js:babel-core/register test"
+  },
+  "author": "Tom Martin <tom@tpgmartin.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.10",
+    "chai": "^3.5.0",
+    "eslint": "^3.12.2",
+    "eslint-plugin-react": "^6.8.0",
+    "mocha": "^3.2.0",
+    "webpack": "^1.14.0"
+  }
+}
