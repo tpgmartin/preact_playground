@@ -33,4 +33,28 @@ describe('h(jsx)', () => {
              .with.property('children')
              .that.deep.equals([buildVNode('bar'), buildVNode('baz')])
   })
+
+  it('should support multiple element children given as arg list', () => {
+    let r = h('foo', null, h('bar'), h('baz', null, h('test')))
+    expect(r).to.be.an('object')
+             .with.property('children')
+             .that.deep.equals([
+               buildVNode('bar'),
+               buildVNode('baz', undefined, [
+                 buildVNode('test')
+               ])
+             ])
+  })
+
+  it('should support multiple element children given as an array', () => {
+    let r = h('foo', null, [ h('bar'), h('baz', null, h('test')) ])
+    expect(r).to.be.an('object')
+             .with.property('children')
+             .that.deep.equals([
+               buildVNode('bar'),
+               buildVNode('baz', undefined, [
+                 buildVNode('test')
+               ])
+             ])
+  })
 })
