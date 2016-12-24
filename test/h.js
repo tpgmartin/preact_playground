@@ -2,6 +2,13 @@ import { expect } from 'chai'
 import { h } from '../src/h'
 import { VNode } from '../src/vnode'
 
+const buildVNode = (nodeName, attributes, children=[]) => ({
+  nodeName,
+	children,
+	attributes,
+	key: attributes && attributes.key
+});
+
 describe('h(jsx)', () => {
   it('should return a VNode', () => {
     let r;
@@ -18,5 +25,12 @@ describe('h(jsx)', () => {
     expect(r).to.be.an('object')
              .with.property('attributes')
              .that.deep.equals(attrs)
+  })
+
+  it('should support element children', () => {
+    let r = h('foo', null, h('bar'), h('baz'))
+    expect(r).to.be.an('object')
+             .with.property('children')
+             .that.deep.equals([buildVNode('bar'), buildVNode('baz')])
   })
 })
