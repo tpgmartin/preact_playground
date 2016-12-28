@@ -1,6 +1,6 @@
 import { expect } from 'chai'
-import { h } from '../src/h'
-import { VNode } from '../src/vnode'
+import { h } from '../../src'
+import { VNode } from '../../src/vnode'
 
 const buildVNode = (nodeName, attributes, children=[]) => ({
   nodeName,
